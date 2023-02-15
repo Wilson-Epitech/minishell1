@@ -45,8 +45,8 @@ int main(int ac, char **av, char **env)
         }
         char *full_path = malloc(sizeof(char) * (my_strlen(path) + my_strlen(args[0]) + 1));
         error_handling_fullpath(full_path);
-        strcpy(full_path, path);
-        strcat(full_path, args[0]);
+        my_strcpy(full_path, path);
+        my_strcat(full_path, args[0]);
         int status = exec_command(full_path, args, env);
         free(args);
     }

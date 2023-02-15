@@ -21,6 +21,7 @@ counter_t init_struct(int value);
 int check_status(int status);
 int my_put_nbr(int nb);
 char *my_strcat(char *dest, char const *src);
+char *my_strcpy(char *dest, char const *src);
 int error_handling(int ac);
 int error_handling_getline(char *buffer, size_t size_buffer);
 int error_handling_args(char **args);
