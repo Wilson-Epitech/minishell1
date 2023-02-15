@@ -28,7 +28,7 @@ char **word_array(char **result, char const *str)
     int i = 0;
 
     while (str[i] != '\0') {
-        if (str[i] == '\n') {
+        if (str[i] == ' ') {
             result[x][y] = '\0';
             x++;
             y = 0;
@@ -52,7 +52,7 @@ char **my_str_to_word_array(char const *str)
     char **result = malloc(sizeof(char*) * (nb + 1));
 
     while (str[i] != '\0') {
-        if (str[i] == '\n') {
+        if (str[i] == ' ') {
             result[x] = malloc(sizeof(char) * (count + 1));
             x++;
             count = 0;

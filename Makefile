@@ -5,17 +5,20 @@
 ## Makefile
 ##
 
-CC	=	GCC
+CC	=	gcc
 CCFLAGS	=	-Wextra -Wall -Werror
 
 SRC	=	src/main.c			\
+		src/error_handling.c				\
 		src/lib/my_putstr.c		\
 		src/lib/my_putchar.c		\
 		src/lib/my_strlen.c		\
+		src/lib/my_str_to_word_array.c	\
+		src/lib/my_strcat.c				\
 
 OBJ	=	$(SRC:.c=.o)
 
-NAME	=	bsminishell
+NAME	=	mysh
 
 all	:	$(NAME)
 
