@@ -9,13 +9,15 @@
     #define LIB_H_
     #include <stdio.h>
     #include <unistd.h>
+    #include <string.h>
     #include <stdlib.h>
     #include <sys/types.h>
     #include <sys/wait.h>
     #include "struct.h"
 void my_putchar(char c);
 int my_putstr(char const *str);
-char **my_str_to_word_array(char const *str);
+char **my_str_to_word_array_space(char const *str);
+char **my_str_to_word_array_line(char const *str);
 int my_strlen(char const *str);
 counter_t init_struct(int value);
 int check_status(int status);
@@ -27,4 +29,7 @@ int error_handling_getline(char *buffer, size_t size_buffer);
 int error_handling_args(char **args);
 int end_of_buffer(char *buffer);
 int error_handling_fullpath(char *full_path);
+char *my_revstr(char *str);
+char *get_path(char **env, char **args);
+int exec_command(char *path, char **tmp, char **env);
 #endif /* !LIB_H_ */

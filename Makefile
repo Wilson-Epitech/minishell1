@@ -10,12 +10,16 @@ CCFLAGS	=	-Wextra -Wall -Werror
 
 SRC	=	src/main.c			\
 		src/error_handling.c				\
+		src/get_path.c						\
+		src/exec.c							\
 		src/lib/my_putstr.c		\
 		src/lib/my_putchar.c		\
 		src/lib/my_strlen.c		\
-		src/lib/my_str_to_word_array.c	\
+		src/lib/my_str_to_word_array_space.c	\
+		src/lib/my_str_to_word_array_line.c	\
 		src/lib/my_strcat.c				\
 		src/lib/my_strcpy.c				\
+		src/lib/my_revstr.c				\
 
 OBJ	=	$(SRC:.c=.o)
 
