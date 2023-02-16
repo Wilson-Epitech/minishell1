@@ -6,7 +6,29 @@
 */
 
 #include "../includes/lib.h"
-#include <string.h>
+
+int get_path(char **env)
+{
+    char *path = "PATH=";
+    char *path_value = NULL;
+
+    for (int i = 0; env[i] != NULL; i++) {
+        if (strncmp(path, env[i], my_strlen(path)) == 0) {
+            path_value = env[i] + my_strlen(path);
+            break;
+        }
+    }
+    if (path_value != NULL) {
+        char *dir = strtok(path_value, ":");
+        while (dir != NULL) {
+            my_putstr(dir);
+            my_putchar('\n');
+            dir = strtok(NULL, ":");
+        }
+    }
+
+    return 0;
+}
 
 int exec_command(char *path, char **tmp, char **env)
 {
@@ -32,18 +54,20 @@ int main(int ac, char **av, char **env)
     size_t size_buffer = 100;
     char *path = "/bin/";
     char *buffer = malloc(sizeof(char *) * (size_buffer));
+    get_path(env);
     while (1) {
         my_putstr("\033[31m/$\033[0m");
         error_handling_getline(buffer, size_buffer);
         end_of_buffer(buffer);
         char **args = malloc(sizeof(char*) * 10);
         error_handling_args(args);
-        args = my_str_to_word_array(buffer);
+        args = my_str_to_word_array_space(buffer);
         if (args == NULL || args[0] == NULL) {
             free(args);
             continue;
         }
-        char *full_path = malloc(sizeof(char) * (my_strlen(path) + my_strlen(args[0]) + 1));
+        char *full_path = malloc(sizeof(char) *
+            (my_strlen(path) + my_strlen(args[0]) + 1));
         error_handling_fullpath(full_path);
         my_strcpy(full_path, path);
         my_strcat(full_path, args[0]);

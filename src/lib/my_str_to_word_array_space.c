@@ -7,7 +7,7 @@
 
 #include "../../includes/lib.h"
 
-int strlencustom(char const *str)
+int strlencustom_space(char const *str)
 {
     int i = 0;
     int nb = 0;
@@ -21,7 +21,7 @@ int strlencustom(char const *str)
     return nb + 1;
 }
 
-char **word_array(char **result, char const *str)
+char **word_array_space(char **result, char const *str)
 {
     int x = 0;
     int y = 0;
@@ -43,11 +43,11 @@ char **word_array(char **result, char const *str)
     return result;
 }
 
-char **my_str_to_word_array(char const *str)
+char **my_str_to_word_array_space(char const *str)
 {
     int i = 0;
     int count = 0;
-    int nb = strlencustom(str);
+    int nb = strlencustom_space(str);
     int x = 0;
     char **result = malloc(sizeof(char*) * (nb + 1));
 
@@ -61,6 +61,6 @@ char **my_str_to_word_array(char const *str)
         i++;
     }
     result[x] = malloc(sizeof(char) * (count + 1));
-    result = word_array(result, str);
+    result = word_array_space(result, str);
     return result;
 }
