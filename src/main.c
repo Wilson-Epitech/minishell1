@@ -11,8 +11,7 @@ int main(int ac, char **av, char **env)
 {
     error_handling(ac);
     size_t size_buffer = 100;
-    char *path = "/bin/";
-    char *buffer = malloc(sizeof(char *) * (size_buffer));
+    char *buffer = malloc(sizeof(char) * (size_buffer));
     while (1) {
         my_putstr("\033[31m/$\033[0m");
         error_handling_getline(buffer, size_buffer);
@@ -25,7 +24,6 @@ int main(int ac, char **av, char **env)
             continue;
         }
         char *full_path = get_path(env, args);
-        printf("full path ici : %s\n", full_path);
         int status = exec_command(full_path, args, env);
         free(args);
     }

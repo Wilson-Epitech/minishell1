@@ -18,7 +18,7 @@ int error_handling(int ac)
 int error_handling_getline(char *buffer, size_t size_buffer)
 {
     if (getline(&buffer, &size_buffer, stdin) == -1) {
-        exit(84);
+        exit(0);
     }
     return 0;
 }
@@ -43,7 +43,7 @@ int error_handling_args(char **args)
 int error_handling_fullpath(char *full_path)
 {
     if (full_path == NULL) {
-            exit(84);
+            exit(88);
     }
     return 0;
 }

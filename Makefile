@@ -7,6 +7,7 @@
 
 CC	=	gcc
 CCFLAGS	=	-Wextra -Wall -Werror
+CFLAGS	=	-g3
 
 SRC	=	src/main.c			\
 		src/error_handling.c				\
@@ -28,7 +29,7 @@ NAME	=	mysh
 all	:	$(NAME)
 
 $(NAME)	:	$(OBJ)
-	$(CC) -o $(NAME) $(OBJ) $(CCFLAGS) -g3
+	$(CC) -o $(NAME) $(OBJ) $(CCFLAGS) $(CFLAGS)
 
 clean	:
 	$(RM) $(OBJ)
