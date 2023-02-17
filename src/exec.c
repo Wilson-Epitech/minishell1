@@ -15,7 +15,7 @@ int exec_command(char *path, char **tmp, char **env)
     }
     if (pid == 0) {
         execve(path, tmp, env);
-        // exit(84);
+        exit(84);
     } else {
         int status;
         if (waitpid(pid, &status, 0) == -1) {
