@@ -40,10 +40,12 @@ int error_handling_args(char **args)
     return 0;
 }
 
-int error_handling_fullpath(char *full_path)
+int error_handling_fullpath(char *full_path, char **args)
 {
     if (full_path == NULL) {
-            exit(88);
+        my_putstr(args[0]);
+        my_putstr(": Command not found.");
+        my_putchar('\n');
     }
     return 0;
 }

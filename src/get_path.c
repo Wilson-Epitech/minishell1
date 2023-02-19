@@ -46,6 +46,6 @@ char *get_path(char **env, char **args)
 
     path_value = get_env_line_path(env, path_value, path);
     full_path = get_full_path(path_value, full_path, args);
-    error_handling_fullpath(full_path);
+    error_handling_fullpath(full_path, args);
     return full_path;
 }

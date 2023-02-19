@@ -28,7 +28,7 @@ int error_handling(int ac);
 int error_handling_getline(char *buffer, size_t size_buffer);
 int error_handling_args(char **args);
 int end_of_buffer(char *buffer);
-int error_handling_fullpath(char *full_path);
+int error_handling_fullpath(char *full_path, char **args);
 char *my_revstr(char *str);
 char *get_path(char **env, char **args);
 int exec_command(char *path, char **tmp, char **env);
