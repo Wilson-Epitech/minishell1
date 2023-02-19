@@ -21,6 +21,8 @@ SRC	=	src/main.c			\
 		src/lib/my_strcat.c				\
 		src/lib/my_strcpy.c				\
 		src/lib/my_revstr.c				\
+		src/lib/my_strdup.c				\
+		src/lib/my_strncmp.c			\
 
 OBJ	=	$(SRC:.c=.o)
 

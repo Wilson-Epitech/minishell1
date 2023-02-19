@@ -10,8 +10,8 @@
 char *get_env_line_path(char **env, char *path_value, char *path)
 {
     for (int i = 0; env[i] != NULL; i++) {
-        if (strncmp(path, env[i], my_strlen(path)) == 0) {
-            path_value = strdup(env[i] + my_strlen(path));
+        if (my_strncmp(path, env[i], my_strlen(path)) == 0) {
+            path_value = my_strdup(env[i] + my_strlen(path));
             break;
         }
     }
@@ -22,8 +22,8 @@ char *get_full_path(char *path_value, char *full_path, char **args)
 {
     if (path_value != NULL) {
         char *dir = strtok(path_value, ":");
-        size_t path_len = strlen(dir);
-        size_t arg_len = strlen(args[0]);
+        size_t path_len = my_strlen(dir);
+        size_t arg_len = my_strlen(args[0]);
         full_path = malloc(sizeof(char) * (path_len + 1 + arg_len + 1));
         while (dir != NULL) {
             my_strcpy(full_path, dir);

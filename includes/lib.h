@@ -32,4 +32,6 @@ int error_handling_fullpath(char *full_path);
 char *my_revstr(char *str);
 char *get_path(char **env, char **args);
 int exec_command(char *path, char **tmp, char **env);
+char *my_strdup(char const *src);
+int my_strncmp(char const *str1, char const *str2, int size);
 #endif /* !LIB_H_ */
