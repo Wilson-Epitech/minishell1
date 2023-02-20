@@ -18,11 +18,15 @@ SRC	=	src/main.c			\
 		src/lib/my_strlen.c		\
 		src/lib/my_str_to_word_array_space.c	\
 		src/lib/my_str_to_word_array_line.c	\
+		src/lib/my_str_to_word_array_one_delim.c	\
+		src/lib/my_str_to_word_array_test.c			\
 		src/lib/my_strcat.c				\
 		src/lib/my_strcpy.c				\
+		src/lib/my_strncpy.c			\
 		src/lib/my_revstr.c				\
 		src/lib/my_strdup.c				\
 		src/lib/my_strncmp.c			\
+		src/lib/my_strcmp.c				\
 
 OBJ	=	$(SRC:.c=.o)
 
