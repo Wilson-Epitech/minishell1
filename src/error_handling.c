@@ -44,7 +44,7 @@ int error_handling_fullpath(char *full_path, char **args)
 {
     if (full_path == NULL) {
         my_putstr(args[0]);
-        my_putstr(": Commande not found.");
+        my_putstr(": Command not found.");
         my_putchar('\n');
         exit(1);
     }
