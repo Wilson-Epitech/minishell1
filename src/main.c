@@ -30,7 +30,7 @@ char *check_existing_path(char **args)
     return NULL;
 }
 
-int main_loop(char *existing_path, char **env, char **args)
+int path_loop(char *existing_path, char **env, char **args)
 {
     if (existing_path == NULL) {
         char *full_path = get_path(env, args);
@@ -42,7 +42,8 @@ int main_loop(char *existing_path, char **env, char **args)
 
 int main(int ac, char **av, char **env)
 {
-    error_handling(ac); size_t size_buffer = 100;
+    error_handling(ac);
+    size_t size_buffer = 100;
     char *buffer = malloc(sizeof(char) * (size_buffer));
     while (1) {
         my_putstr("\033[31m/$\033[0m");
@@ -57,7 +58,7 @@ int main(int ac, char **av, char **env)
         }
         exit_command(args);
         char *existing_path = check_existing_path(args);
-        main_loop(existing_path, env, args);
+        path_loop(existing_path, env, args);
         free(args);
     }
     free(buffer);

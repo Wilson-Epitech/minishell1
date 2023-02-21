@@ -38,4 +38,8 @@ int exec_command(char *path, char **tmp, char **env);
 char *my_strdup(char const *src);
 int my_strncmp(char const *str1, char const *str2, int size);
 int my_strcmp(char const *str1, char const *str2);
+int path_loop(char *existing_path, char **env, char **args);
+int exit_command(char **args);
+char *check_existing_path(char **args);
+int path_loop(char *existing_path, char **env, char **args);
 #endif /* !LIB_H_ */

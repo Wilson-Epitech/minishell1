@@ -34,6 +34,13 @@ NAME	=	mysh
 
 all	:	$(NAME)
 
+tests_run:
+		gcc -o unit_tests $(SRC) unit_test/unit_test.c --coverage -lcriterion
+		./unit_tests
+
+tests_clean:
+		$(RM) unit_tests*
+		cd unit_test && $(RM) *~
 $(NAME)	:	$(OBJ)
 	$(CC) -o $(NAME) $(OBJ) $(CCFLAGS) $(CFLAGS)
 
