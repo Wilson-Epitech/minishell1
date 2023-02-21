@@ -58,8 +58,7 @@ int main(int ac, char **av, char **env)
         }
         exit_command(args);
         char *existing_path = check_existing_path(args);
-        path_loop(existing_path, env, args);
-        free(args);
+        path_loop(existing_path, env, args); free(args);
     }
     free(buffer);
     return 0;

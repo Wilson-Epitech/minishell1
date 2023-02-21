@@ -50,11 +50,9 @@ int get_word_length(char const *str, int i)
 
 char **my_str_to_word_array_test(char const *str)
 {
-    int word_length;
-    int nb_words = get_nb_words(str);
+    int word_length; int nb_words = get_nb_words(str);
     char **result = malloc(sizeof(char*) * (nb_words + 1));
-    int i = 0;
-    int x = 0;
+    int i = 0; int x = 0;
 
     while (str[i] != '\0') {
         if (is_word_separator(str[i])) {
@@ -66,13 +64,10 @@ char **my_str_to_word_array_test(char const *str)
             int y = 0;
             while (!is_word_separator(str[i]) && str[i] != '\0') {
                 result[x][y] = str[i];
-                i++;
-                y++;
+                i++; y++;
             }
-            result[x][y] = '\0';
-            x++;
+            result[x][y] = '\0'; x++;
         }
     }
-    result[x] = NULL;
-    return result;
+    result[x] = NULL; return result;
 }

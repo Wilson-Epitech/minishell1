@@ -1,0 +1,3 @@
+./src/get_path.c:32: MAJOR:C-C1
+./src/lib/my_str_to_word_array_test.c:65: MAJOR:C-C1
+./unit_test/unit_test.c:18: MINOR:C-L3
