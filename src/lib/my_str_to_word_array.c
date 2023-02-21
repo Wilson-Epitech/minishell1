@@ -48,7 +48,7 @@ int get_word_length(char const *str, int i)
     return count;
 }
 
-char **my_str_to_word_array_test(char const *str)
+char **my_str_to_word_array(char const *str)
 {
     int word_length; int nb_words = get_nb_words(str);
     char **result = malloc(sizeof(char*) * (nb_words + 1));

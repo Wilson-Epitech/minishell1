@@ -10,16 +10,17 @@ CCFLAGS	=	-Wextra -Wall -Werror
 CFLAGS	=	-g3
 
 SRC	=	src/main.c			\
+		src/exit_command.c					\
+		src/cd_command.c					\
 		src/error_handling.c				\
+		src/display_line_shell.c			\
 		src/get_path.c						\
 		src/exec.c							\
+		src/check_existing_path.c			\
 		src/lib/my_putstr.c		\
 		src/lib/my_putchar.c		\
 		src/lib/my_strlen.c		\
-		src/lib/my_str_to_word_array_space.c	\
-		src/lib/my_str_to_word_array_line.c	\
-		src/lib/my_str_to_word_array_one_delim.c	\
-		src/lib/my_str_to_word_array_test.c			\
+		src/lib/my_str_to_word_array.c	\
 		src/lib/my_strcat.c				\
 		src/lib/my_strcpy.c				\
 		src/lib/my_strncpy.c			\

@@ -16,10 +16,7 @@
     #include "struct.h"
 void my_putchar(char c);
 int my_putstr(char const *str);
-char **my_str_to_word_array_one_delim(char const *str, char delim);
-char **my_str_to_word_array_space(char const *str);
-char **my_str_to_word_array_line(char const *str);
-char **my_str_to_word_array_test(char const *str);
+char **my_str_to_word_array(char const *str);
 char *my_strncpy(char *dest, char const *src, int size);
 int my_strlen(char const *str);
 counter_t init_struct(int value);
@@ -42,4 +39,8 @@ int path_loop(char *existing_path, char **env, char **args);
 int exit_command(char **args);
 char *check_existing_path(char **args);
 int path_loop(char *existing_path, char **env, char **args);
+int exit_command(char **args);
+int cd_command(char **args, char **env);
+void display_line_shell(char const *current_path);
+char *check_existing_path(char **args);
 #endif /* !LIB_H_ */

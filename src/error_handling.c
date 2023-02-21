@@ -42,7 +42,8 @@ int error_handling_args(char **args)
 
 int error_handling_fullpath(char *full_path, char **args)
 {
-    if (full_path == NULL) {
+    char *cd = "cd";
+    if (full_path == NULL && (!strcmp(cd, args[0]) == 0)) {
         my_putstr(args[0]);
         my_putstr(": Command not found.");
         my_putchar('\n');
