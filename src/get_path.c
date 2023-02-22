@@ -18,14 +18,9 @@ char *get_env_line_path(char **env, char *path_value, char *path)
     return path_value;
 }
 
-char *get_full_path(char *path_value, char *full_path, char **args)
+char *get_full_path_loop(char *dir, char *full_path, char **args)
 {
-    if (path_value != NULL) {
-        char *dir = strtok(path_value, ":");
-        size_t path_len = my_strlen(dir);
-        size_t arg_len = my_strlen(args[0]);
-        full_path = malloc(sizeof(char) * (path_len + 1 + arg_len + 1));
-        while (dir != NULL) {
+    while (dir != NULL) {
             my_strcpy(full_path, dir);
             my_strcat(full_path, "/");
             my_strcat(full_path, args[0]);
@@ -33,6 +28,18 @@ char *get_full_path(char *path_value, char *full_path, char **args)
                 return full_path;
             }
             dir = strtok(NULL, ":");
+    }
+}
+
+char *get_full_path(char *path_value, char *full_path, char **args)
+{
+    if (path_value != NULL) {
+        char *dir = strtok(path_value, ":");
+        size_t path_len = my_strlen(dir);
+        size_t arg_len = my_strlen(args[0]);
+        full_path = malloc(sizeof(char) * (path_len + 1 + arg_len + 1));
+        if (get_full_path_loop(dir, full_path, args) != NULL) {
+            return full_path;
         }
     }
     return NULL;

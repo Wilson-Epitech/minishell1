@@ -24,44 +24,26 @@ int bypass_first_lap(int count)
     }
 }
 
-void func_func(int count, char * buffer,
-    size_t size_buffer, char const *current_path)
-{
-    bypass_first_lap(count);
-    current_path = getcwd(buffer, size_buffer);
-    display_line_shell(current_path);
-    error_handling_getline(buffer, size_buffer);
-    end_of_buffer(buffer);
-}
-
-void func_command(char **args, char **env)
-{
-    exit_command(args);
-    cd_command(args, env);
-    char *existing_path = check_existing_path(args);
-    path_loop(existing_path, env, args);
-}
-
 int main(int ac, char **av, char **env)
 {
     size_t size_buffer = 100;
     char *buffer = malloc(sizeof(char) * (size_buffer));
-    char const *current_path;
     int count = 0;
 
     error_handling(ac);
     while (1) {
-        func_func(count, buffer, size_buffer, current_path);
-        char **args = malloc(sizeof(char*) * size_buffer);
-        error_handling_args(args);
-        args = my_str_to_word_array(buffer);
+        bypass_first_lap(count);
+        char *current_path_save = handling_path(buffer, size_buffer, env);
+        error_handling_getline(buffer, size_buffer);
+        char **args = malloc_buffer(args, buffer, size_buffer);
         if (args == NULL || args[0] == NULL) {
             free(args);
             continue;
         }
-        func_command(args, env);
+        shell_command(args, env, current_path_save);
         free(args);
         count ++;
     }
-    free(buffer); return 0;
+    free(buffer);
+    return 0;
 }

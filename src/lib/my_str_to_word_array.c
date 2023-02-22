@@ -52,7 +52,7 @@ char **my_str_to_word_array(char const *str)
 {
     int word_length; int nb_words = get_nb_words(str);
     char **result = malloc(sizeof(char*) * (nb_words + 1));
-    int i = 0; int x = 0;
+    int i = 0; int x = 0; int y = 0;
 
     while (str[i] != '\0') {
         if (is_word_separator(str[i])) {
@@ -60,7 +60,6 @@ char **my_str_to_word_array(char const *str)
         } else {
             word_length = get_word_length(str, i);
             result[x] = malloc(sizeof(char) * (word_length + 1));
-
             int y = 0;
             while (!is_word_separator(str[i]) && str[i] != '\0') {
                 result[x][y] = str[i];

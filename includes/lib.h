@@ -40,7 +40,13 @@ int exit_command(char **args);
 char *check_existing_path(char **args);
 int path_loop(char *existing_path, char **env, char **args);
 int exit_command(char **args);
-int cd_command(char **args, char **env);
-void display_line_shell(char const *current_path);
+int cd_command(char **args, char **env, char const *current_path);
+void display_line_shell(char const *current_path, char **env);
 char *check_existing_path(char **args);
+char *get_env_line_path(char **env, char *path_value, char *path);
+char *get_log_name(char **env);
+int setenv_command(char **args, char **env);
+char **malloc_buffer(char **args, char *buffer, size_t size_buffer);
+void shell_command(char **args, char **env, char *current_path_save);
+char *handling_path(char *buffer, size_t size_buffer, char **env);
 #endif /* !LIB_H_ */

@@ -17,6 +17,7 @@ int error_handling(int ac)
 
 int error_handling_getline(char *buffer, size_t size_buffer)
 {
+    end_of_buffer(buffer);
     if (getline(&buffer, &size_buffer, stdin) == -1) {
         exit(0);
     }
@@ -43,7 +44,9 @@ int error_handling_args(char **args)
 int error_handling_fullpath(char *full_path, char **args)
 {
     char *cd = "cd";
-    if (full_path == NULL && (!strcmp(cd, args[0]) == 0)) {
+    char *setenv = "setenv";
+    if (full_path == NULL && (!my_strcmp(cd, args[0]) == 0)
+        && (!my_strcmp(setenv, args[0]) == 0)) {
         my_putstr(args[0]);
         my_putstr(": Command not found.");
         my_putchar('\n');

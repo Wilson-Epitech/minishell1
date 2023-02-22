@@ -10,6 +10,10 @@ CCFLAGS	=	-Wextra -Wall -Werror
 CFLAGS	=	-g3
 
 SRC	=	src/main.c			\
+		src/handling_path.c					\
+		src/shell_command.c					\
+		src/malloc_buffer.c					\
+		src/setenv_command.c					\
 		src/exit_command.c					\
 		src/cd_command.c					\
 		src/error_handling.c				\
