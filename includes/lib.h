@@ -13,6 +13,7 @@
     #include <stdlib.h>
     #include <sys/types.h>
     #include <sys/wait.h>
+    #include <signal.h>
     #include "struct.h"
 void my_putchar(char c);
 int my_putstr(char const *str);

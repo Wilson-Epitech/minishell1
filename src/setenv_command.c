@@ -9,12 +9,8 @@
 
 int setenv_command(char **args, char **env)
 {
-    if (strcmp(args[0], "setenv") == 0) {
-        if (args[1] != NULL && args[2] != NULL) {
-            setenv(args[1], args[2], 1);
-        } else {
-            my_putstr("Error: incorrect arguments\n");
-        }
+    if (my_strcmp(args[0], "setenv") == 0) {
+        return 1;
     }
-    return 1;
+    return 0;
 }
