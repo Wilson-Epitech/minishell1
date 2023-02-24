@@ -45,12 +45,13 @@ int error_handling_fullpath(char *full_path, char **args)
 {
     char *cd = "cd";
     char *setenv = "setenv";
+    char *unsetenv = "unsetenv";
     if (full_path == NULL && (!my_strcmp(cd, args[0]) == 0)
-        && (!my_strcmp(setenv, args[0]) == 0)) {
+        && (!my_strcmp(setenv, args[0]) == 0)
+        && (!my_strcmp(unsetenv, args[0]) == 0)) {
         my_putstr(args[0]);
         my_putstr(": Command not found.");
         my_putchar('\n');
-        exit(1);
     }
     return 0;
 }

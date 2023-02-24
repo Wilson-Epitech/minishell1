@@ -50,4 +50,5 @@ int setenv_command(char **args, char **env);
 char **malloc_buffer(char **args, char *buffer, size_t size_buffer);
 void shell_command(char **args, char **env, char *current_path_save);
 char *handling_path(char *buffer, size_t size_buffer, char **env);
+int unsetenv_command(char **env, char **args);
 #endif /* !LIB_H_ */
