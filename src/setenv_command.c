@@ -10,23 +10,27 @@
 void print_env(char **env)
 {
     for (int i = 0; env[i] != NULL; i++) {
-        printf("%s\n", env[i]);
+        my_putstr(env[i]);
+        my_putchar('\n');
     }
 }
 
 int error_handling_setenv_unsetenv(char **args, char **env)
 {
+
     return 0;
 }
 
 char **setenv_command(char **args, char **env)
 {
+
     print_env(env);
     return env;
 }
 
 int unsetenv_command(char **args, char **env)
 {
+
     print_env(env);
     return 1;
 }
