@@ -27,7 +27,7 @@ int error_handling_cd(char **args)
 {
     struct stat sb;
     stat(args[1], &sb);
-    if ( my_strncmp(args[0], "cd", 2) == 0 && args[1] != NULL) {
+    if (my_strncmp(args[0], "cd", 2) == 0 && args[1] != NULL) {
         if (my_strcmp(args[1], "-") == 0) {
             return 0;
         }
