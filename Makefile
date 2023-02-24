@@ -33,6 +33,29 @@ SRC	=	src/main.c			\
 		src/lib/my_strncmp.c			\
 		src/lib/my_strcmp.c				\
 
+SRC2 =	src/handling_path.c					\
+		src/shell_command.c					\
+		src/malloc_buffer.c					\
+		src/setenv_command.c					\
+		src/exit_command.c					\
+		src/cd_command.c					\
+		src/error_handling.c				\
+		src/display_line_shell.c			\
+		src/get_path.c						\
+		src/exec.c							\
+		src/check_existing_path.c			\
+		src/lib/my_putstr.c		\
+		src/lib/my_putchar.c		\
+		src/lib/my_strlen.c		\
+		src/lib/my_str_to_word_array.c	\
+		src/lib/my_strcat.c				\
+		src/lib/my_strcpy.c				\
+		src/lib/my_strncpy.c			\
+		src/lib/my_revstr.c				\
+		src/lib/my_strdup.c				\
+		src/lib/my_strncmp.c			\
+		src/lib/my_strcmp.c				\
+
 OBJ	=	$(SRC:.c=.o)
 
 NAME	=	mysh
@@ -40,7 +63,7 @@ NAME	=	mysh
 all	:	$(NAME)
 
 tests_run:
-		gcc -o unit_tests $(SRC) unit_test/unit_test.c --coverage -lcriterion
+		gcc -o unit_tests $(SRC2) unit_test/unit_test.c --coverage -lcriterion
 		./unit_tests
 
 tests_clean:

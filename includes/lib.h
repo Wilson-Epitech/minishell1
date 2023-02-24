@@ -46,9 +46,8 @@ void display_line_shell(char const *current_path, char **env);
 char *check_existing_path(char **args);
 char *get_env_line_path(char **env, char *path_value, char *path);
 char *get_log_name(char **env);
-int setenv_command(char **args, char **env);
+char **setenv_command(char **args, char **env);
 char **malloc_buffer(char **args, char *buffer, size_t size_buffer);
-void shell_command(char **args, char **env, char *current_path_save);
+char **shell_command(char **args, char **env, char *current_path_save);
 char *handling_path(char *buffer, size_t size_buffer, char **env);
-int unsetenv_command(char **env, char **args);
 #endif /* !LIB_H_ */
