@@ -49,5 +49,6 @@ char *get_log_name(char **env);
 char **setenv_command(char **args, char **env);
 char **malloc_buffer(char **args, char *buffer, size_t size_buffer);
 char **shell_command(char **args, char **env, char *current_path_save);
+char **unsetenv_command(char **args, char **env);
 char *handling_path(char *buffer, size_t size_buffer, char **env);
 #endif /* !LIB_H_ */
