@@ -1,0 +1,11 @@
+./main_backup_before_codying_style.c:1: MINOR:C-G1
+./src/cd_command.c:34: MINOR:C-L3
+./src/lib/my_str_to_word_array.c:64: MAJOR:C-C1
+./src/setenv_command.c:93: MAJOR:C-O3
+./src/setenv_command.c:104: MAJOR:C-O3
+./src/setenv_command.c:116: MAJOR:C-C1
+./src/setenv_command.c:118: MAJOR:C-C1
+./src/setenv_command.c:126: MAJOR:C-F4
+./src/setenv_command.c:127: MAJOR:C-F4
+./src/setenv_command.c:128: MAJOR:C-F4
+./unit_test/unit_test1.c:18: MINOR:C-L3

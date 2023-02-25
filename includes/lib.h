@@ -51,4 +51,7 @@ char **malloc_buffer(char **args, char *buffer, size_t size_buffer);
 char **shell_command(char **args, char **env, char *current_path_save);
 char **unsetenv_command(char **args, char **env);
 char *handling_path(char *buffer, size_t size_buffer, char **env);
+char **setenv_command_one_arg(char **args, char **env);
+int check_before_unsetenv(char **args, char **env);
+char *get_setenv_line_path(char **env, char *path_value, char *path);
 #endif /* !LIB_H_ */
