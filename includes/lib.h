@@ -15,6 +15,16 @@
     #include <sys/wait.h>
     #include <signal.h>
     #include "struct.h"
+    #include <criterion/criterion.h>
+    #include <criterion/redirect.h>
+    #include <criterion/assert.h>
+    #include <criterion/redirect.h>
+    #include <sys/stat.h>
+    #include <sys/types.h>
+    #include <stdbool.h>
+
+int error_handling_cd(char **args);
+void cd_chdir(int nb_args, char *path_home, char **args, char *path_last_lap);
 void my_putchar(char c);
 int my_putstr(char const *str);
 char **my_str_to_word_array(char const *str);
@@ -43,7 +53,6 @@ int path_loop(char *existing_path, char **env, char **args);
 int exit_command(char **args);
 int cd_command(char **args, char **env, char const *current_path);
 void display_line_shell(char const *current_path, char **env);
-char *check_existing_path(char **args);
 char *get_env_line_path(char **env, char *path_value, char *path);
 char *get_log_name(char **env);
 char **setenv_command(char **args, char **env);
@@ -56,4 +65,7 @@ int check_before_unsetenv(char **args, char **env);
 char *get_setenv_line_path(char **env, char *path_value, char *path);
 void print_env(char **env);
 int check_before_unsetenv(char **args, char **env);
+int path_loop(char *existing_path, char **env, char **args);
+int bypass_first_lap(int count);
+char **clone_env(char **env);
 #endif /* !LIB_H_ */

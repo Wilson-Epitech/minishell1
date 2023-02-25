@@ -6,9 +6,6 @@
 */
 
 #include "../includes/lib.h"
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <stdbool.h>
 
 char *get_env_line_path(char **env, char *path_value, char *path);
 

@@ -35,8 +35,11 @@ SRC	=	src/main.c			\
 		src/print_env.c					\
 		src/get_setenv_line_path.c		\
 		src/check_before_unsetenv.c		\
+		src/path_loop.c					\
+		src/bypass_first_lap.c			\
+		src/clone_env.c					\
 
-SRC2 =	src/handling_path.c					\
+SRC2	=	src/handling_path.c					\
 		src/shell_command.c					\
 		src/malloc_buffer.c					\
 		src/setenv_command.c					\
@@ -58,6 +61,12 @@ SRC2 =	src/handling_path.c					\
 		src/lib/my_strdup.c				\
 		src/lib/my_strncmp.c			\
 		src/lib/my_strcmp.c				\
+		src/print_env.c					\
+		src/get_setenv_line_path.c		\
+		src/check_before_unsetenv.c		\
+		src/path_loop.c					\
+		src/bypass_first_lap.c			\
+		src/clone_env.c					\
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -65,15 +74,16 @@ NAME	=	mysh
 
 all	:	$(NAME)
 
+$(NAME)	:	$(OBJ)
+	$(CC) -o $(NAME) $(OBJ) $(CCFLAGS) $(CFLAGS)
+
 tests_run:
-		gcc -o unit_tests $(SRC2) unit_test/unit_test.c --coverage -lcriterion
+		gcc -o unit_tests $(SRC2) test/unit_test.c --coverage -lcriterion
 		./unit_tests
 
 tests_clean:
 		$(RM) unit_tests*
 		cd unit_test && $(RM) *~
-$(NAME)	:	$(OBJ)
-	$(CC) -o $(NAME) $(OBJ) $(CCFLAGS) $(CFLAGS)
 
 clean	:
 	$(RM) $(OBJ)

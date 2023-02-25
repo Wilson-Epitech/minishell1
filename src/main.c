@@ -7,23 +7,6 @@
 
 #include "../includes/lib.h"
 
-int path_loop(char *existing_path, char **env, char **args)
-{
-    if (existing_path == NULL) {
-        char *full_path = get_path(env, args);
-        int status = exec_command(full_path, args, env);
-    } else {
-        int status = exec_command(existing_path, args, env);
-    }
-}
-
-int bypass_first_lap(int count)
-{
-    if (count != 0) {
-        my_putchar('\n');
-    }
-}
-
 int main(int ac, char **av, char **env)
 {
     size_t size_buffer = 100;
