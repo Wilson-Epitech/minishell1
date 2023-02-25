@@ -32,6 +32,9 @@ SRC	=	src/main.c			\
 		src/lib/my_strdup.c				\
 		src/lib/my_strncmp.c			\
 		src/lib/my_strcmp.c				\
+		src/print_env.c					\
+		src/get_setenv_line_path.c		\
+		src/check_before_unsetenv.c		\
 
 SRC2 =	src/handling_path.c					\
 		src/shell_command.c					\

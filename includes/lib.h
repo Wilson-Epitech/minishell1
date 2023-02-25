@@ -54,4 +54,6 @@ char *handling_path(char *buffer, size_t size_buffer, char **env);
 char **setenv_command_one_arg(char **args, char **env);
 int check_before_unsetenv(char **args, char **env);
 char *get_setenv_line_path(char **env, char *path_value, char *path);
+void print_env(char **env);
+int check_before_unsetenv(char **args, char **env);
 #endif /* !LIB_H_ */

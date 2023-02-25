@@ -9,14 +9,6 @@
 
 extern char **environ;
 
-void print_env(char **env)
-{
-    for (int i = 0; env[i] != NULL; i++) {
-        my_putstr(env[i]);
-        my_putchar('\n');
-    }
-}
-
 int error_handling_setenv_unsetenv(char **args, char **env)
 {
     if (args[2] != NULL && args[1] == NULL
@@ -24,7 +16,8 @@ int error_handling_setenv_unsetenv(char **args, char **env)
         print_env(env);
     }
     if (args[1] == NULL && my_strcmp(args[0], "unsetenv") == 0) {
-        exit(84);
+        my_putstr("Unsetenv : Too few arguments");
+        return 0;
     }
     return 0;
 }
@@ -47,23 +40,6 @@ char **setenv_command_one_arg(char **args, char **env)
     env[i] = str;
     env[i + 1] = NULL;
     return env;
-}
-
-int check_before_unsetenv(char **args, char **env)
-{
-    env = environ;
-    size_t len = my_strlen(args[1]);
-    char *path = malloc(sizeof(char) * (len + 2));
-    path = my_strcat(path, args[1]);
-    path = my_strcat(path, "=");
-
-    char *path_value = get_env_line_path(env, NULL, path);
-    if (path_value == NULL) {
-        free(path);
-        return -1;
-    }
-    free(path);
-    return 0;
 }
 
 char **setenv_command(char **args, char **env)
@@ -90,23 +66,9 @@ char **setenv_command(char **args, char **env)
     return env;
 }
 
-char *get_setenv_line_path(char **env, char *path_value, char *path)
+char **unsetenv_command_loop(char **args, char **env)
 {
-    for (int i = 0; env[i] != NULL; i++) {
-        if (my_strncmp(path, env[i], my_strlen(path)) == 0) {
-            path_value = my_strdup(env[i]);
-            break;
-        }
-    }
-    return path_value;
-}
-
-char **unsetenv_command(char **args, char **env)
-{
-    env = environ;
-    int state = check_before_unsetenv(args, env);
-    if (state != -1) {
-        char *arg1 = args[1];
+    char *arg1 = args[1];
         char *path = my_strcat(arg1, "=");
         char *path_value = NULL;
         path_value = get_setenv_line_path(env, path_value, path);
@@ -124,6 +86,18 @@ char **unsetenv_command(char **args, char **env)
             }
             i++;
         }
-        return env;
+    return env;
+}
+
+char **unsetenv_command(char **args, char **env)
+{
+    env = environ;
+    if (args[1] == NULL && my_strcmp(args[0], "unsetenv") == 0) {
+        my_putstr("Unsetenv : Too few arguments\n");
+        return 0;
+    }
+    int state = check_before_unsetenv(args, env);
+    if (state != -1) {
+        unsetenv_command_loop(args, env);
     }
 }

@@ -31,7 +31,7 @@ int error_handling_cd(char **args)
         if (my_strcmp(args[1], "-") == 0) {
             return 0;
         }
-        if(S_ISDIR(sb.st_mode)) {
+        if (S_ISDIR(sb.st_mode)) {
             return 1;
         }
         if (S_ISREG(sb.st_mode)) {
