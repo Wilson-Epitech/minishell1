@@ -24,6 +24,11 @@ int error_handling_cd(char **args)
 {
     struct stat sb;
     stat(args[1], &sb);
+    if (my_strncmp(args[0], "cd", 2) == 0 && args[2] != NULL) {
+        my_putstr("cd: Too many arguments");
+        my_putchar('\n');
+        return 0;
+    }
     if (my_strncmp(args[0], "cd", 2) == 0 && args[1] != NULL) {
         if (my_strcmp(args[1], "-") == 0) {
             return 0;
@@ -36,12 +41,7 @@ int error_handling_cd(char **args)
             my_putstr(": Not a directory");
             my_putchar('\n');
         }
-    }
-    if (my_strncmp(args[0], "cd", 2) == 0 && args[2] != NULL) {
-        my_putstr("cd: Too many arguments");
-        my_putchar('\n');
-    }
-    return 0;
+    } return 0;
 }
 
 int cd_command(char **args, char **env, char const *current_path)

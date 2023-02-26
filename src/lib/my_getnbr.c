@@ -5,8 +5,7 @@
 ** my_getnbr
 */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "../../includes/lib.h"
 
 static int my_getreturn(char const *str, int i, int nb)
 {
@@ -17,8 +16,13 @@ static int my_getreturn(char const *str, int i, int nb)
 
 int my_getnbr(char const *str)
 {
-    int i = 0;
-    int nb = 0;
+    int i = 0; int nb = 0;
+    int sign = 1;
+
+    if (str[i] == '-') {
+        sign = -1;
+        i++;
+    }
     while (str[i] != '\0') {
         if (str[i] >= '0' && str[i] <= '9') {
             nb = nb * 10;
@@ -27,5 +31,9 @@ int my_getnbr(char const *str)
         }
         i++;
     }
-    return nb;
+    if (sign == -1) {
+        return sign * nb;
+    } else {
+        return nb;
+    }
 }

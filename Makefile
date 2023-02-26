@@ -53,6 +53,7 @@ SRC2	=	src/handling_path.c					\
 		src/lib/my_putstr.c		\
 		src/lib/my_putchar.c		\
 		src/lib/my_strlen.c		\
+		src/lib/my_put_nbr.c			\
 		src/lib/my_str_to_word_array.c	\
 		src/lib/my_strcat.c				\
 		src/lib/my_strcpy.c				\
@@ -61,6 +62,7 @@ SRC2	=	src/handling_path.c					\
 		src/lib/my_strdup.c				\
 		src/lib/my_strncmp.c			\
 		src/lib/my_strcmp.c				\
+		src/lib/my_getnbr.c				\
 		src/print_env.c					\
 		src/get_setenv_line_path.c		\
 		src/check_before_unsetenv.c		\

@@ -23,6 +23,9 @@
     #include <sys/types.h>
     #include <stdbool.h>
 
+int my_getnbr(char const *str);
+char *get_full_path(char *path_value, char *full_path, char **args);
+char *get_full_path_loop(char *dir, char *full_path, char **args);
 int error_handling_cd(char **args);
 void cd_chdir(int nb_args, char *path_home, char **args, char *path_last_lap);
 void my_putchar(char c);

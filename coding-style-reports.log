@@ -1,2 +1,6 @@
+./MinishellTesting/bin/broken.out:1: MAJOR:C-O1
+./MinishellTesting/bin/floating.out:1: MAJOR:C-O1
+./MinishellTesting/bin/segfault.out:1: MAJOR:C-O1
 ./src/lib/my_str_to_word_array.c:64: MAJOR:C-C1
 ./src/setenv_command.c:80: MAJOR:C-C1
+./test/unit_test.c:523: MINOR:C-L4
