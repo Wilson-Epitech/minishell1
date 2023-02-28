@@ -7,6 +7,21 @@
 
 #include "../includes/lib.h"
 
+int check_command(char **args)
+{
+    char *path = getenv("PATH");
+    if (path == NULL) {
+        my_putstr(args[0]);
+        my_putstr(": command not found\n");
+        return 1;
+    } else if (*path == '\0') {
+        my_putstr(args[0]);
+        my_putstr(": command not found\n");
+        return 1;
+    }
+    return 0;
+}
+
 int main(int ac, char **av, char **env)
 {
     size_t size_buffer = 100;
@@ -19,13 +34,13 @@ int main(int ac, char **av, char **env)
         char *current_path_save = handling_path(buffer, size_buffer, env);
         error_handling_getline(buffer, size_buffer);
         char **args = malloc_buffer(args, buffer, size_buffer);
-        if (args == NULL || args[0] == NULL) {
+        int state = check_command(args);
+        if (args == NULL || args[0] == NULL || state == 1) {
             free(args);
             continue;
         }
         shell_command(args, env, current_path_save);
-        free(args);
-        count ++;
+        free(args); count ++;
     }
     free(buffer);
     return 0;

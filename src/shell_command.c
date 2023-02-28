@@ -7,7 +7,6 @@
 
 #include "../includes/lib.h"
 
-
 char *check_env_is_empty(char **env, char **args)
 {
     char *path = "PATH=";
