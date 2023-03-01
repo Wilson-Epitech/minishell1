@@ -7,16 +7,18 @@
 
 #include "../includes/lib.h"
 
-int check_command(char **args)
+int check_command(char **args, char **env)
 {
-    char *path = getenv("PATH");
-    if (path == NULL) {
+    char *path = "PATH=";
+    char *path_value = get_env_line_path(env, path_value, path);
+    if (path_value == NULL) {
         my_putstr(args[0]);
-        my_putstr(": command not found\n");
+        printf("ok ici la:");
+        my_putstr(": command not found\n\n");
         return 1;
-    } else if (*path == '\0') {
+    } else if (*path_value == '\0') {
         my_putstr(args[0]);
-        my_putstr(": command not found\n");
+        my_putstr(": command not found\n\n");
         return 1;
     }
     return 0;
@@ -34,7 +36,7 @@ int main(int ac, char **av, char **env)
         char *current_path_save = handling_path(buffer, size_buffer, env);
         error_handling_getline(buffer, size_buffer);
         char **args = malloc_buffer(args, buffer, size_buffer);
-        int state = check_command(args);
+        int state = check_command(args, env);
         if (args == NULL || args[0] == NULL || state == 1) {
             free(args);
             continue;
