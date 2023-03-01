@@ -15,12 +15,23 @@ char *check_env_is_empty(char **env, char **args)
     return path_return;
 }
 
+char *error_message_setenv(char **env, char **args)
+{
+    char *path = "setenv";
+    if (my_strcmp(args[0], path) == 0 && args[1][1] <= 9 && args [1][1] >= 0) {
+        my_putstr("setenv: Variable name must begin with a letter.\n");
+        return(0);
+    }
+    return 0;
+}
+
 char **shell_command(char **args, char **env, char *current_path_save)
 {
     char *path_env_empty = check_env_is_empty(env, args);
     char *existing_path = NULL;
     char **new_env = clone_env(env);
     exit_command(args);
+    error_message_setenv(env, args);
     if (path_env_empty == NULL
         && my_strcmp(args[0], "setenv") == 0) {
             return 0;

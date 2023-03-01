@@ -38,7 +38,7 @@ int error_handling_cd(char **args)
         }
         if (S_ISREG(sb.st_mode)) {
             my_putstr(args[1]);
-            my_putstr(": Not a directory");
+            my_putstr(": Not a directory.");
             my_putchar('\n');
         }
     } return 0;
