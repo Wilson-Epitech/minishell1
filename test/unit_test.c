@@ -520,7 +520,8 @@ Test (my_str_to_word_array, mixed_spaces_string) {
     free(result);
 }
 
-void redirect_all_stdout(void) {
+void redirect_all_stdout(void)
+{
     cr_redirect_stdout();
 }
 
