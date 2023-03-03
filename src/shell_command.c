@@ -20,7 +20,7 @@ char *error_message_setenv(char **env, char **args)
     char *path = "setenv";
     if (my_strcmp(args[0], path) == 0 && args[1][1] <= 9 && args [1][1] >= 0) {
         my_putstr("setenv: Variable name must begin with a letter.\n");
-        return(0);
+        return 0;
     }
     return 0;
 }

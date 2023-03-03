@@ -13,11 +13,11 @@ int check_command(char **args, char **env)
     char *path_value = get_env_line_path(env, path_value, path);
     if (path_value == NULL) {
         my_putstr(args[0]);
-        my_putstr(": command not found\n\n");
+        my_putstr(": Command not found.\n\n");
         return 1;
     } else if (*path_value == '\0') {
         my_putstr(args[0]);
-        my_putstr(": command not found\n\n");
+        my_putstr(": Command not found.\n\n");
         return 1;
     }
     return 0;
