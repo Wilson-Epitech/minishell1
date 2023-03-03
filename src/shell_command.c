@@ -31,10 +31,11 @@ char **shell_command(char **args, char **env, char *current_path_save)
     char *existing_path = NULL;
     char **new_env = clone_env(env);
     exit_command(args);
-    error_message_setenv(env, args);
     if (path_env_empty == NULL
         && my_strcmp(args[0], "setenv") == 0) {
             return 0;
+    } else {
+        error_message_setenv(env, args);
     }
     if (args[2] != NULL && my_strcmp(args[0], "setenv") == 0)
         setenv_command(args, new_env);
