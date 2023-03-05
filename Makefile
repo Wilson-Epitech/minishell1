@@ -38,6 +38,7 @@ SRC	=	src/main.c			\
 		src/path_loop.c					\
 		src/bypass_first_lap.c			\
 		src/clone_env.c					\
+		src/lib/my_str_isalphanum.c		\
 
 SRC2	=	src/handling_path.c					\
 		src/shell_command.c					\
@@ -69,6 +70,7 @@ SRC2	=	src/handling_path.c					\
 		src/path_loop.c					\
 		src/bypass_first_lap.c			\
 		src/clone_env.c					\
+		src/lib/my_str_isalphanum.c		\
 
 OBJ	=	$(SRC:.c=.o)
 

@@ -71,4 +71,5 @@ int check_before_unsetenv(char **args, char **env);
 int path_loop(char *existing_path, char **env, char **args);
 int bypass_first_lap(int count);
 char **clone_env(char **env);
+int my_str_isalphanum(char const *str);
 #endif /* !LIB_H_ */
