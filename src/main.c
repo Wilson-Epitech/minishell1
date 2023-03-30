@@ -39,7 +39,6 @@ int main(int ac, char **av, char **env)
         }
         shell_command(args, env, current_path_save, test_env);
         free(args); count ++;
-    }
-    free(buffer);
+    } free(buffer);
     return 0;
 }
