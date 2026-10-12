@@ -14,7 +14,7 @@
 
 <p align="center"><img src=".github/assets/minishell1.gif" alt="Minishell 1" width="820"/></p>
 
-## En deux mots
+## Le projet en quelques mots
 
 Un interpréteur de commandes inspiré de tcsh : un prompt, l'exécution de programmes, et la gestion de l'environnement. La base de tout ce qui a suivi ([Minishell 2](https://github.com/Wilson-Epitech/minishell2), [42sh](https://github.com/Wilson-Epitech/42sh)).
 
@@ -24,10 +24,6 @@ Un interpréteur de commandes inspiré de tcsh : un prompt, l'exécution de prog
 - Builtins `cd` (avec `~`), `env`, `setenv`, `unsetenv`, `exit`
 - Prompt avec l'utilisateur et le dossier courant
 - Message d'erreur quand une commande est introuvable
-
-## Sous le capot
-
-Une boucle lit une ligne, la découpe en arguments, vérifie si c'est un builtin, sinon cherche le binaire dans chaque dossier du `PATH`, fork, exécute, puis attend le fils et récupère son code de retour.
 
 ## Lancer le projet
 
